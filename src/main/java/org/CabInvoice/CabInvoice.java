@@ -19,6 +19,15 @@ public class CabInvoice
        }
        return fare;
     }
+
+    public double CalculateFare(Ride[] ride)
+    {
+        double TotalFare = 0;
+        for (Ride rides : ride)
+            TotalFare += this.CalculateFare(rides.distance,rides.time);
+        return TotalFare;
+
+    }
 }
 
 
