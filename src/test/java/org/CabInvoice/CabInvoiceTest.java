@@ -35,12 +35,24 @@ public class CabInvoiceTest {
                         new Ride(2,5),
                         new Ride(0.1,1)};
 
-        InvoiceSummary invoiceSummary = InvoiceService.CalculateFare(ride);
+        InvoiceSummary invoiceSummary = InvoiceService.CalculateRide(ride);
         InvoiceSummary expeectedInvoiceSummary = new InvoiceSummary(2,30);
         Assert.assertEquals(expeectedInvoiceSummary,invoiceSummary);
 
     }
 
+    @Test
+    public void givenUserIdAndRides_ShouldReturnInvoiceSummary() {
+        CabInvoice InvoiceService = new CabInvoice();
+
+        String UserId = "rohit@gmail.com";
+        Ride[] ride = { new Ride(2.0, 5), new Ride(0.1, 1) };
+        InvoiceService.AddRides(UserId, ride);
+        InvoiceSummary invoiceSummary = InvoiceService.getInvoiceSummary(UserId);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30);
+        Assert.assertEquals(expectedInvoiceSummary, invoiceSummary);
+
+    }
     }
 
 
