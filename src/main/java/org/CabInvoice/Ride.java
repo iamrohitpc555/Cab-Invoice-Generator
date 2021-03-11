@@ -3,9 +3,11 @@ package org.CabInvoice;
 public class Ride {
     public double distance;
     public double time;
+    public RideCategory rideCategory;
 
-    public Ride(double distance, int time) {
+    public Ride(double distance, int time , RideCategory rideCategory) {
         this.distance = distance;
         this.time = time;
+        this.rideCategory = rideCategory;
     }
 }
